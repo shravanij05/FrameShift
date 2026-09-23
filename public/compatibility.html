@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Compatible phones – FrameShift</title>
+<meta name="description" content="The exact Android phone models FrameShift converted videos are made to play on.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect x=%273%27 y=%277%27 width=%2718%27 height=%2718%27 rx=%274%27 fill=%27%2314204a%27 stroke=%27%233a68e8%27 stroke-width=%272%27/%3E%3Crect x=%2711%27 y=%277%27 width=%2718%27 height=%2718%27 rx=%274%27 fill=%27%233a68e8%27/%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header><div class="wrap"><a class="logo" href="/"><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><rect x="3" y="7" width="18" height="18" rx="4" fill="#14204a" stroke="#3a68e8" stroke-width="2"/><rect class="b" x="11" y="7" width="18" height="18" rx="4" fill="#3a68e8"/></svg><span><b>Frame</b><em>Shift</em></span></a>
+  <nav><a href="/">Convert</a><a href="/compatibility.html" aria-current="page">Compatible phones</a></nav>
+</div></header>
+<main class="wrap">
+  <h1>The phones FrameShift is made for.</h1>
+  <p class="lead">Videos from newer iPhones often won't play on older and mid-range Android phones. The .mp4 FrameShift produces is built for the phones below.</p>
+
+  <h2>Find your phone</h2>
+  <input class="finder" id="q" type="search" placeholder="Type your phone model, e.g. Redmi Note 9" aria-label="Search phone models" autocomplete="off">
+  <div id="list">
+<div class="brand"><h3>Samsung</h3><ul class="pills"><li>Galaxy A10</li><li>A12</li><li>A20</li><li>A21s</li><li>A22</li><li>A30</li><li>A32</li><li>A50</li><li>M01</li><li>M11</li><li>M12</li><li>M21</li><li>M31</li><li>M32</li><li>M51</li><li>J2 (2016)</li><li>J7 Prime</li></ul></div>
+<div class="brand"><h3>Xiaomi, Redmi and Poco</h3><ul class="pills"><li>Redmi 6A</li><li>Redmi 8</li><li>Redmi 9</li><li>Redmi 9A</li><li>Redmi Note 7</li><li>Redmi Note 8</li><li>Redmi Note 9</li><li>Redmi Note 10</li><li>Poco M2</li><li>Poco M3</li><li>Poco X3</li></ul></div>
+<div class="brand"><h3>Realme</h3><ul class="pills"><li>Realme C11</li><li>Realme C15</li><li>Realme 5</li><li>Realme 6</li><li>Realme 7</li></ul></div>
+<div class="brand"><h3>Motorola</h3><ul class="pills"><li>Moto G7</li><li>Moto G8 Power</li><li>Moto G9 Play</li><li>Moto E7</li></ul></div>
+<div class="brand"><h3>Vivo</h3><ul class="pills"><li>Vivo Y12</li><li>Vivo Y20</li><li>Vivo Y21</li></ul></div>
+<div class="brand"><h3>Oppo</h3><ul class="pills"><li>Oppo A31</li><li>Oppo A53</li><li>Oppo A54</li></ul></div>
+  </div>
+  <div class="empty hidden" id="none">Your phone isn't on this list. That doesn't mean it won't play the video. The output is standard H.264, which most Android phones handle, but these are the models it's made for.</div>
+  <p>Not sure of your model? Open Settings, then About phone.</p>
+
+  <h2>Why iPhone videos fail on these phones</h2>
+  <ul class="plain">
+    <li><b>HEVC (H.265) video.</b> iPhones save video in this newer compression by default. Many older and mid-range Android phones can't play it smoothly, or at all.</li>
+    <li><b>HDR and Dolby Vision.</b> Recent iPhones record 10-bit HDR. On phones without HDR support, colours turn grey, green or pink.</li>
+    <li><b>4K and 60 frames per second.</b> This is more than these phones can decode without stuttering.</li>
+    <li><b>The .mov wrapper.</b> Some apps refuse .mov files even when the video inside is fine.</li>
+  </ul>
+
+  <h2>What FrameShift changes</h2>
+  <table>
+    <tr><th>File type</th><td>.mp4, with the index at the start so playback begins straight away</td></tr>
+    <tr><th>Video</th><td>H.264, High profile, Level 4.1</td></tr>
+    <tr><th>Colour</th><td>Standard 8-bit. HDR clips are converted to normal colours.</td></tr>
+    <tr><th>Size</th><td>Up to 1920 pixels on the longer side (1080p). 4K is scaled down.</td></tr>
+    <tr><th>Frame rate</th><td>Capped at 30 frames per second</td></tr>
+    <tr><th>Audio</th><td>AAC stereo, 44.1 kHz, 128 kbps</td></tr>
+  </table>
+
+  <h2>Not covered</h2>
+  <ul class="plain">
+    <li>Damaged files, or files with no video track.</li>
+    <li>Files larger than the upload limit on the Convert page.</li>
+  </ul>
+</main>
+<footer><div class="wrap"><span>FrameShift · Your Videos, Made Compatible</span><span><a href="/">Convert</a><a href="/compatibility.html">Compatible phones</a></span></div></footer>
+<script>
+const q=document.getElementById('q'),none=document.getElementById('none');
+q.addEventListener('input',()=>{
+  const t=q.value.trim().toLowerCase();let any=false;
+  document.querySelectorAll('.brand').forEach(b=>{
+    let show=false;
+    b.querySelectorAll('li').forEach(li=>{
+      const m=!t||li.textContent.toLowerCase().includes(t);
+      li.classList.toggle('hidden',!m);li.classList.toggle('hit',!!t&&m);
+      if(m)show=true;
+    });
+    b.classList.toggle('hidden',!show);if(show)any=true;
+  });
+  none.classList.toggle('hidden',any);
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FrameShift – Your Videos, Made Compatible</title>
+<meta name="description" content="Convert iPhone .mov and .mp4 videos into an .mp4 that older and mid-range Android phones can play.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect x=%273%27 y=%277%27 width=%2718%27 height=%2718%27 rx=%274%27 fill=%27%2314204a%27 stroke=%27%233a68e8%27 stroke-width=%272%27/%3E%3Crect x=%2711%27 y=%277%27 width=%2718%27 height=%2718%27 rx=%274%27 fill=%27%233a68e8%27/%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header><div class="wrap"><a class="logo" href="/"><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><rect x="3" y="7" width="18" height="18" rx="4" fill="#14204a" stroke="#3a68e8" stroke-width="2"/><rect class="b" x="11" y="7" width="18" height="18" rx="4" fill="#3a68e8"/></svg><span><b>Frame</b><em>Shift</em></span></a>
+  <nav><a href="/" aria-current="page">Convert</a><a href="/compatibility.html">Compatible phones</a></nav>
+</div></header>
+<main class="wrap">
+  <h1>Your videos, <span class="dim">made compatible.</span></h1>
+  <p class="lead">A video from an iPhone that won't open, shows a black screen or looks green on an Android phone? Upload it and get back an .mp4 that plays.</p>
+
+  <section class="tool" aria-label="Video converter">
+    <ol class="steps" id="steps"><li class="on">Choose</li><li>Convert</li><li>Download</li></ol>
+
+    <div id="pick">
+      <label class="drop" id="drop">
+        <input type="file" id="file" accept=".mov,.mp4,.m4v,video/quicktime,video/mp4">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 16V4m0 0L7 9m5-5 5 5"/><path d="M4 16v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3"/></svg>
+        <b>Choose a video or drop it here</b>
+        <small>.mov, .mp4 or .m4v, up to <span id="max">500</span> MB</small>
+      </label>
+      <div class="mode" role="radiogroup" aria-label="Speed">
+        <label><input type="radio" name="speed" value="balanced" checked>Balanced<small>Smaller file, takes longer</small></label>
+        <label><input type="radio" name="speed" value="fast">Fast<small>Finishes sooner, bigger file</small></label>
+      </div>
+    </div>
+
+    <div id="job" class="hidden" aria-live="polite">
+      <div class="job-top"><b id="fname"></b><span id="pct">0%</span></div>
+      <div class="bar" id="bar"><i id="fill"></i></div>
+      <div class="meta"><span id="msg"></span><span id="time"></span></div>
+      <div class="result hidden" id="result">
+        <div><p>Your video is ready.</p><small id="sizes"></small></div>
+        <div class="btns"><a class="btn" id="dl" href="#">Download .mp4</a><button class="btn ghost" id="again" type="button">Convert another</button></div>
+      </div>
+      <div class="btns hidden" id="failbtn" style="margin-top:14px"><button class="btn ghost" id="retry" type="button">Try again</button></div>
+    </div>
+  </section>
+
+  <h2>What changes in your video</h2>
+  <div class="compare">
+    <div class="bad"><h3>Straight from the iPhone</h3><ul><li>HEVC (H.265) video</li><li>4K, up to 60 fps</li><li>10-bit HDR colour</li><li>.mov file</li></ul></div>
+    <div class="arrow" aria-hidden="true">→</div>
+    <div class="after good"><h3>After FrameShift</h3><ul><li>H.264 video</li><li>Up to 1080p, 30 fps</li><li>Normal 8-bit colour</li><li>.mp4 file</li></ul></div>
+  </div>
+  <p class="note">Wondering if it will work on your phone? <a href="/compatibility.html">Check the list of compatible phones</a>.</p>
+
+  <h2>Questions</h2>
+  <details><summary>Will the quality change?</summary><p>A little. Any conversion re-encodes the video, so it can't be pixel-identical. At the default setting it looks very close to the original. Two changes are deliberate and visible on a large screen: 4K is scaled down to 1080p, and HDR colours are converted to standard colours.</p></details>
+  <details><summary>What's the difference between Balanced and Fast?</summary><p>Both aim for the same picture quality. Fast finishes sooner but produces a larger file.</p></details>
+  <details><summary>Is my video kept?</summary><p>No. Uploaded and converted files are deleted from the server 20 minutes after upload.</p></details>
+  <details><summary>Why does converting take a while?</summary><p>Video encoding is heavy work, and long or 4K clips take longer. The page shows the time left once the conversion is under way.</p></details>
+</main>
+<footer><div class="wrap"><span>FrameShift · Your Videos, Made Compatible</span><span><a href="/">Convert</a><a href="/compatibility.html">Compatible phones</a></span></div></footer>
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+# dependencies
+node_modules/
+
+# environment and secrets
+.env
+.env.*
+
+# logs
+*.log
+npm-debug.log*
+
+# temp files from conversions
+tmp/
+frameshift-*/
+
+# OS and editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
