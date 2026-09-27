@@ -12,8 +12,11 @@ $('retry').addEventListener('click', reset);
 const mb = (b) => (b / 1048576).toFixed(b > 10485760 ? 0 : 1) + ' MB';
 const mmss = (s) => Math.floor(s / 60) + ':' + String(Math.floor(s % 60)).padStart(2, '0');
 
-function step(n) { // 0 choose, 1 convert, 2 download
-  [...$('steps').children].forEach((li, i) => { li.className = i < n ? 'done' : i === n ? 'on' : ''; });
+function step(n) { // 0 choose, 1 convert, 2 download, 3 complete
+  const steps = [...$('steps').querySelectorAll('.step')];
+  const lines = [...$('steps').querySelectorAll('.step-line')];
+  steps.forEach((el, i) => { el.className = 'step ' + (i < n ? 'done' : i === n ? 'on' : ''); });
+  lines.forEach((el, i) => { el.classList.toggle('done', i < n); });
 }
 function show(pct, msg, opts = {}) {
   $('fill').style.width = pct + '%';
@@ -30,7 +33,6 @@ function reset() {
 }
 
 function start(file) {
-  if (!/\.(mov|mp4|m4v)$/i.test(file.name)) { alert('Please choose a .mov, .mp4 or .m4v video.'); input.value = ''; return; }
   current = file; t0 = Date.now();
   pick.classList.add('hidden'); job.classList.remove('hidden');
   $('fname').textContent = file.name; step(1);
