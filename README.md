@@ -48,3 +48,21 @@ frameshift/
 ├── package.json
 └── README.md
 ```
+---
+
+## Tech Stack
+
+- **Frontend:** HTML, CSS, JavaScript
+- **Backend:** Node.js, Express.js
+- **Video Processing:** FFmpeg
+- **File Handling:** Multer
+- **Video Encoding:** H.264 (AVC), AAC
+- **Deployment:** Render
+
+---
+
+---
+
+---
+
+Created by **Shravani Joshi** as a personal project, inspired by a video compatibility issue I experienced firsthand.
