@@ -61,8 +61,4 @@ frameshift/
 
 ---
 
----
-
----
-
 Created by **Shravani Joshi** as a personal project, inspired by a video compatibility issue I experienced firsthand.
